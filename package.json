@@ -1,0 +1,23 @@
+{
+  "name": "logisticservice",
+  "version": "1.0.0",
+  "description": "Serviço de Logistica em rest",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "express-myconnection": "^1.0.4",
+    "getmodule": "^1.0.0",
+    "mysql": "^2.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rest",
+    "api"
+  ],
+  "author": "Thiago da Silva Corrêa",
+  "license": "ISC"
+}
