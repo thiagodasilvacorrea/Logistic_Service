@@ -12,6 +12,8 @@ apiRouter.route('/entrega') // Rota para funções get e create.
 
 
 apiRouter.route('/entrega/:id') // Rota para funções que necessitam de parametros.
-.get(api.retriaveById); //Função que retorna as entregas pela identificação unica.
+.get(api.retriaveById) //Função que retorna as entregas pela identificação unica.
+.put(api.update) // Função que atualiza os dados as entregas.
+.delete(api.del);//Função que deleta uma entrega.
 
 module.exports = apiRouter; 

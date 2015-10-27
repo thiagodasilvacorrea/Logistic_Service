@@ -8,17 +8,19 @@ var router = express.Router();
 var mensagemErroConnexão = "Falha ao conectar ao banco";
 var mensagemErroQuery = "Falha ao executar a query";
 
-//Variaveis utilizadas nas querys
+//Variaveis utilizadas nas querys==============================================
 
 var tabela = ' Entregas ';
 
-// Querys 
+// Querys======================================================================== 
 var retiveQueryById = 'SELECT * FROM' +tabela+ 'WHERE id = ?';
 
 var retriaveQuery = "select * from" + tabela;
 
-var createQuery =  'INSERT INTO'+ tabela+ 'SET ?';
+var createQuery =  'INSERT INTO'+ tabela+ 'SET ?'
 
+ var updateQuery = 'UPDATE'+tabela+ 'SET ? WHERE id = ? ';
+ var deleteQuery = 'DELETE FROM '+tabela+ 'WHERE id = ? ';
 //crud============================================================================ 
 
 //Retornar todas as entregas
@@ -64,3 +66,30 @@ exports.create = function(req, res) {
 	});
  }
 
+// Atualizar uma entrega
+
+exports.update = function(req, res) {
+ 	var data = req.body,        //Variavel recebe dados da requisição.
+ 		id 	   = req.params.id; //Variavel recebe o id da requisição.
+
+	req.getConnection(function(err,connection){
+		connection.query(updateQuery,[data, id],function(err,result){
+			if(err) return res.status(400).json(err);
+
+			return res.status(200).json(result);
+		});
+	});
+}
+
+// Deleta uma entrega
+exports.del = function(req, res) {
+ 	var id = req.params.id;
+
+	req.getConnection(function(err,connection){
+		connection.query(deleteQuery,[id],function(err,result){
+			if(err) return res.status(400).json(err);
+
+			return res.status(200).json(result);
+		});
+	});
+}
