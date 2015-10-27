@@ -13,7 +13,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
-app.use(myConnection(mysql,dbconfig,'single'));
+app.use(myConnection(mysql,dbconfig,'request'));
 
 
 
