@@ -17,6 +17,8 @@ var retiveQueryById = 'SELECT * FROM' +tabela+ 'WHERE id = ?';
 
 var retriaveQuery = "select * from" + tabela;
 
+var createQuery =  'INSERT INTO'+ tabela+ 'SET ?';
+
 //crud============================================================================ 
 
 //Retornar todas as entregas
@@ -37,7 +39,7 @@ exports.retriave =function(req, res) {
 
 //Retornar entregas pelo id
 exports.retriaveById = function(req, res) {
- 	var id = req.params.id; //Variavel recebe o ip passado por parametro
+ 	var id = req.params.id; //Variavel recebe o id passado por parametro
 
 	req.getConnection(function(err,connection){
 		connection.query(retiveQueryById,[id],function(err,result){
@@ -47,3 +49,18 @@ exports.retriaveById = function(req, res) {
 		});
 	});
 }
+
+// Regista uma entrega
+
+exports.create = function(req, res) {
+ 	var data = req.body; //Variavel recebe dados da requisição.
+
+	req.getConnection(function(err,connection){
+		connection.query(createQuery,[data],function(err,result){
+			if(err) return res.status(400).json(err);
+
+			return res.status(200).json(result);
+		});
+	});
+ }
+

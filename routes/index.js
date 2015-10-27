@@ -4,12 +4,14 @@ var express = require('express');
 var apiRouter = express.Router()
 var api = require ('../app/logisticProvider.js');
 
-// Rota para retornar utilizadas pela api do serviço de entrega
+// Rotas para retornar utilizadas pela api do serviço de entrega
  
-apiRouter.route('/entrega') // Rota para retornar todos as entregas para requsiçoes get
-.get(api.retriave); //Função que retorna todas as entregas
+apiRouter.route('/entrega') // Rota para funções get e create.
+.get(api.retriave) //Função que retorna todas as entregas.
+.post(api.create); //Função que registra uma entrega.
 
-apiRouter.route('/entrega/:id') // Rota para retornar uma entrega pela identificação unica para requisições get
+
+apiRouter.route('/entrega/:id') // Rota para funções que necessitam de parametros.
 .get(api.retriaveById); //Função que retorna as entregas pela identificação unica.
 
 module.exports = apiRouter; 
