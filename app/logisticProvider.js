@@ -17,7 +17,7 @@ var retiveQueryById = 'SELECT * FROM' +tabela+ 'WHERE id = ?';
 
 var retriaveQuery = "select * from" + tabela;
 
-var createQuery =  'INSERT INTO'+ tabela+ 'SET ?'
+var createQuery =  'INSERT INTO'+ tabela+ 'SET ?';
 
  var updateQuery = 'UPDATE'+tabela+ 'SET ? WHERE id = ? ';
  var deleteQuery = 'DELETE FROM '+tabela+ 'WHERE id = ? ';
