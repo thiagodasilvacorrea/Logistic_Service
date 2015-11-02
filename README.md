@@ -10,10 +10,15 @@ localhost:3000/api/entrega
 
 Descrição dos metodos:
 
-get(/entrega) : tras todas as entregas
+get(/entrega) : tras todas as 
+
+
 post(/entrega) : grava as entregas
 
 localhost:3000/api/entrega/:id
+
 get(/entrega/:id): retorna entrega pelo usuario
+
 put(/entrega/:id) : atualiza as entregas pelo usuario
+
 delete(/entrega/:id) : deleta uma entrega
